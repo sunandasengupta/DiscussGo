@@ -1,5 +1,5 @@
 <?php
-// Load environment variables from .env file
+// Load environment variables from .env file (for local development)
 $env_file = __DIR__ . '/.env';
 if (file_exists($env_file)) {
     $lines = file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -18,7 +18,8 @@ if(!defined('base_url')) define('base_url', getenv('BASE_URL') ?: 'http://localh
 if(!defined('base_app')) define('base_app', str_replace('\\','/',__DIR__).'/' );
 
 // Database configuration - read from environment or use defaults
-if(!defined('DB_SERVER')) define('DB_SERVER', getenv('DB_SERVER') ?: "localhost");
+// Support both old (DB_SERVER) and new (DB_HOST) naming conventions
+if(!defined('DB_SERVER')) define('DB_SERVER', getenv('DB_HOST') ?: getenv('DB_SERVER') ?: "localhost");
 if(!defined('DB_USERNAME')) define('DB_USERNAME', getenv('DB_USERNAME') ?: "root");
 if(!defined('DB_PASSWORD')) define('DB_PASSWORD', getenv('DB_PASSWORD') ?: "");
 if(!defined('DB_NAME')) define('DB_NAME', getenv('DB_NAME') ?: "odfs_db");
