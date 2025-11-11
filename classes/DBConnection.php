@@ -8,6 +8,7 @@ class DBConnection{
     private $username = DB_USERNAME;
     private $password = DB_PASSWORD;
     private $database = DB_NAME;
+    private $port = defined('DB_PORT') ? DB_PORT : null;
     
     public $conn;
     
@@ -15,7 +16,12 @@ class DBConnection{
 
         if (!isset($this->conn)) {
             
-            $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+            // If a port is provided, pass it to mysqli; otherwise let mysqli use default
+            if(!empty($this->port)){
+                $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database, intval($this->port));
+            }else{
+                $this->conn = new mysqli($this->host, $this->username, $this->password, $this->database);
+            }
             
             if (!$this->conn) {
                 echo 'Cannot connect to database server';
