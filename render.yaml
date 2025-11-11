@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: odfs-backend
+    runtime: php
+    plan: standard
+    buildCommand: composer install
+    startCommand: echo "Starting PHP server..." && php -S 0.0.0.0:10000 -t public
+    envVars:
+      - key: DB_SERVER
+        scope: build
+        value: your-mysql-database-url
+      - key: DB_USERNAME
+        scope: build
+      - key: DB_PASSWORD
+        scope: build
+        isPrivate: true
+      - key: DB_NAME
+        scope: build
+        value: odfs_db
+      - key: BASE_URL
+        scope: build
+        value: https://odfs-backend.onrender.com/
+
+  - type: pserv
+    name: odfs-mysql
+    plan: free
+    version: 5.7
+    database: odfs_db
+    user: odfs_user
