@@ -1,7 +1,7 @@
 services:
   - type: web
     name: odfs-backend
-    env: php
+    runtime: native
     plan: standard
     startCommand: php -S 0.0.0.0:10000 -t .
     envVars:
