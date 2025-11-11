@@ -3,27 +3,27 @@ services:
     name: odfs-backend
     runtime: php
     plan: standard
-    buildCommand: composer install
-    startCommand: echo "Starting PHP server..." && php -S 0.0.0.0:10000 -t public
+    startCommand: php -S 0.0.0.0:10000 -t .
     envVars:
       - key: DB_SERVER
-        scope: build
-        value: your-mysql-database-url
+        scope: env
+        value: your-mysql-host.mysql.planetscale.com
       - key: DB_USERNAME
-        scope: build
+        scope: env
+        value: your-username
       - key: DB_PASSWORD
-        scope: build
+        scope: env
         isPrivate: true
+        value: your-password
       - key: DB_NAME
-        scope: build
+        scope: env
         value: odfs_db
       - key: BASE_URL
-        scope: build
+        scope: env
         value: https://odfs-backend.onrender.com/
-
-  - type: pserv
-    name: odfs-mysql
-    plan: free
-    version: 5.7
-    database: odfs_db
-    user: odfs_user
+      - key: APP_TIMEZONE
+        scope: env
+        value: Asia/Manila
+      - key: APP_ENV
+        scope: env
+        value: production
