@@ -36,21 +36,19 @@
                 <div id="carouselExampleControls" class="carousel slide bg-dark" data-ride="carousel">
                     <div class="carousel-inner">
                         <?php 
-                            $upload_path = "uploads/banner";
-                            if(is_dir(base_app.$upload_path)): 
-                            $file= scandir(base_app.$upload_path);
+                            // Hardcoded carousel images
+                            $carousel_images = array(
+                                'uploads/banner/1_wp2.jpg',
+                                'uploads/banner/sec_ban.webp'
+                            );
                             $_i = 0;
-                                foreach($file as $img):
-                                    if(in_array($img,array('.','..')))
-                                        continue;
-                            $_i++;
-                                
+                            foreach($carousel_images as $img_path):
+                                $_i++;
                         ?>
                         <div class="carousel-item h-100 <?php echo $_i == 1 ? "active" : '' ?>">
-                            <img src="<?php echo validate_image($upload_path.'/'.$img) ?>" class="d-block w-100  h-100" alt="<?php echo $img ?>">
+                            <img src="<?php echo base_url . $img_path ?>" class="d-block w-100  h-100" alt="Banner <?php echo $_i ?>">
                         </div>
                         <?php endforeach; ?>
-                        <?php endif; ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

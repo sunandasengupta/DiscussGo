@@ -47,10 +47,10 @@ function validate_image($file){
 		if(is_file(base_app.$file)){
 			return base_url.$file.$ts;
 		}else{
-			return base_url.($_settings->info('logo'));
+			return base_url.'uploads/logo.png';
 		}
 	}else{
-		return base_url.($_settings->info('logo'));
+		return base_url.'uploads/logo.png';
 	}
 }
 function format_num($number = '' , $decimal = ''){

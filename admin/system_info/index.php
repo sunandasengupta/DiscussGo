@@ -53,7 +53,7 @@
 	            </div>
 			</div>
 			<div class="form-group d-flex justify-content-center">
-				<img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
+				<img src="<?php echo base_url . 'uploads/logo.png' ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
 			</div>
 			<div class="form-group">
 				<label for="" class="control-label">Website Cover</label>
@@ -63,7 +63,7 @@
 	            </div>
 			</div>
 			<div class="form-group d-flex justify-content-center">
-				<img src="<?php echo validate_image($_settings->info('cover')) ?>" alt="" id="cimg2" class="img-fluid img-thumbnail">
+				<img src="<?php echo base_url . 'uploads/cover.png' ?>" alt="" id="cimg2" class="img-fluid img-thumbnail">
 			</div>
 			<div class="form-group">
 				<label for="" class="control-label">Banner Images</label>

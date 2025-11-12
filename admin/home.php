@@ -77,13 +77,11 @@
   </div>
 <div class="container">
   <?php 
-    $files = array();
-      $fopen = scandir(base_app.'uploads/banner');
-      foreach($fopen as $fname){
-        if(in_array($fname,array('.','..')))
-          continue;
-        $files[]= validate_image('uploads/banner/'.$fname);
-      }
+    // Hardcoded carousel images
+    $files = array(
+      base_url.'uploads/banner/1_wp2.jpg',
+      base_url.'uploads/banner/sec_ban.webp'
+    );
   ?>
   <div id="tourCarousel"  class="carousel slide" data-ride="carousel" data-interval="3000">
       <div class="carousel-inner h-100">
