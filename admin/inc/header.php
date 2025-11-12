@@ -53,5 +53,5 @@
         var _base_url_ = '<?php echo base_url ?>';
     </script>
     <script src="<?php echo base_url ?>dist/js/script.js"></script>
-    <?php echo html_entity_decode($_settings->load_data()); ?>
+    <!-- Removed: injected/encoded script from SystemSettings->load_data() that was adding unwanted developer credit/links to the site. -->
   </head>
