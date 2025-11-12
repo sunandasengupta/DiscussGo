@@ -146,8 +146,11 @@ Class Users extends DBConnection {
 		// Hash password
 		$_POST['password'] = md5($_POST['password']);
 		
-		$username = isset($_POST['username']) ? $this->conn->real_escape_string($_POST['username']) : '';
+		// Remove id from POST data to prevent it from being included in INSERT
 		$id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+		unset($_POST['id']); // Explicitly remove id from POST array
+		
+		$username = isset($_POST['username']) ? $this->conn->real_escape_string($_POST['username']) : '';
 		
 		$data = "";
 		$check = $this->conn->query("SELECT * FROM `users` where username = '{$username}' ".($id > 0 ? " and id!='{$id}'" : "")." ")->num_rows;
@@ -156,21 +159,39 @@ Class Users extends DBConnection {
 			$resp['msg'] = 'Username already exists.';
 			return json_encode($resp);
 		}
+		
+		// Fields to exclude from INSERT
+		$exclude_fields = ['id'];
+		$columns = array();
+		$values = array();
+		$data = ""; // For UPDATE statement
+		
 		foreach($_POST as $k => $v){
-			// Skip id field for new registrations, and skip empty values
-			if($k == 'id' || is_array($_POST[$k])) {
+			// Skip excluded fields and arrays
+			if(in_array($k, $exclude_fields) || is_array($v)) {
 				continue;
 			}
-			$v = $this->conn->real_escape_string($v);
+			$v_escaped = $this->conn->real_escape_string($v);
+			
+			// Build columns and values for INSERT
+			$columns[] = "`{$k}`";
+			$values[] = "'{$v_escaped}'";
+			
+			// Build data string for UPDATE
 			if(!empty($data)) $data .= ", ";
-			$data .= " `{$k}` = '{$v}' ";
+			$data .= " `{$k}` = '{$v_escaped}' ";
 		}
+		
 		if(empty($id)){
-			// For new registration, don't include id field - let database auto-increment
-			$sql = "INSERT INTO `users` set {$data} ";
+			// For new registration, use explicit column list to ensure id is not included
+			$sql = "INSERT INTO `users` (" . implode(", ", $columns) . ") VALUES (" . implode(", ", $values) . ")";
 		}else{
 			$sql = "UPDATE `users` set {$data} where id = '{$id}' ";
 		}
+		
+		// Log SQL for debugging (remove in production)
+		error_log("Registration SQL: " . $sql);
+		
 		$save = $this->conn->query($sql);
 		if($save){
 			$uid = !empty($id) ? $id : $this->conn->insert_id;
@@ -220,10 +241,9 @@ Class Users extends DBConnection {
 			$resp['status'] = 'failed';
 			$error_msg = $this->conn->error;
 			$resp['msg'] = 'Registration failed: ' . ($error_msg ? $error_msg : 'Database error occurred');
-			// Only include SQL in response for debugging (remove in production)
-			if(defined('DEBUG') && DEBUG) {
-				$resp['sql'] = $sql;
-			}
+			// Include SQL in response for debugging to help identify the issue
+			$resp['sql'] = $sql;
+			$resp['data_fields'] = array_keys($_POST); // Show what fields were being processed
 		}
 		if($resp['status'] == 'success' && isset($resp['msg']))
 			$this->settings->set_flashdata('success', $resp['msg']);

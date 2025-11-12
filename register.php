@@ -149,13 +149,27 @@
                 console.log('Response Text:', xhr.responseText)
                 console.log('Status Code:', xhr.status)
                 var errorMsg = 'An error occurred';
+                var errorDetails = '';
                 try {
                     var resp = JSON.parse(xhr.responseText);
                     if(resp.msg) errorMsg = resp.msg;
+                    if(resp.sql) {
+                        console.log('SQL Query:', resp.sql);
+                        errorDetails += '\nSQL: ' + resp.sql;
+                    }
+                    if(resp.data_fields) {
+                        console.log('Fields processed:', resp.data_fields);
+                        errorDetails += '\nFields: ' + resp.data_fields.join(', ');
+                    }
                 } catch(e) {
-                    if(xhr.responseText) errorMsg = xhr.responseText.substring(0, 200);
+                    if(xhr.responseText) {
+                        errorMsg = xhr.responseText.substring(0, 200);
+                        // Try to extract just the error message from HTML
+                        var match = xhr.responseText.match(/Fatal error[^<]+/);
+                        if(match) errorMsg = match[0];
+                    }
                 }
-                alert('Error: ' + errorMsg);
+                alert('Error: ' + errorMsg + errorDetails);
                 end_loader()
             },
             success:function(resp){
