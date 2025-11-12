@@ -10,6 +10,20 @@
   .user-dd:hover{
     color:#fff !important
   }
+  /* Center navbar-toggler vertically in mobile view */
+  @media (max-width: 991.98px) {
+    .navbar-toggler {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5rem 0.75rem;
+    }
+    .navbar-toggler-icon {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-navy">
             <div class="container px-4 px-lg-5 ">

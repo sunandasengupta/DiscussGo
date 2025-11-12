@@ -9,7 +9,7 @@
   </script>
   <style>
     body{
-      background-image: url("<?php echo base_url . 'uploads/cover.png' ?>");
+      background-image: url("<?php echo base_url . 'uploads/Cover.jpg' ?>");
       background-size:cover;
       background-repeat:no-repeat;
       backdrop-filter: contrast(1);

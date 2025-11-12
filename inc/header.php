@@ -69,7 +69,7 @@
         left:0;
         width:100%;
         height:100%;
-        background-image:url(<?php echo base_url.'uploads/cover.png' ?>);
+        background-image:url(<?php echo base_url.'uploads/Cover.jpg' ?>);
         background-repeat: no-repeat;
         background-size: cover;
         filter: drop-shadow(0px 7px 6px black);
