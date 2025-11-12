@@ -19,6 +19,21 @@
       color: #fff4f4 !important;
       background: #8080801c;
     }
+    /* Remove any watermark elements */
+    [class*="watermark"],
+    [id*="watermark"],
+    [class*="oretnom"],
+    [id*="oretnom"],
+    body::after,
+    body::before,
+    .login-page::after,
+    .login-page::before,
+    .login-box::after,
+    .login-box::before {
+      display: none !important;
+      content: none !important;
+      visibility: hidden !important;
+    }
   </style>
   <h1 class="text-center text-white px-4 py-5" id="page-title"><b><?php echo $_settings->info('name') ?></b></h1>
 <div class="login-box">
