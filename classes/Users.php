@@ -130,17 +130,21 @@ Class Users extends DBConnection {
 	function registration(){
 		$resp = array('status' => 'failed', 'msg' => 'An error occurred');
 		
-		if(!empty($_POST['password']))
-			$_POST['password'] = md5($_POST['password']);
-		else
-			unset($_POST['password']);
-		
-		// Validate required fields
-		if(empty($_POST['username']) || empty($_POST['firstname']) || empty($_POST['lastname'])){
-			$resp['status'] = 'failed';
-			$resp['msg'] = 'Please fill in all required fields.';
+		// Check if POST data is received
+		if(empty($_POST)){
+			$resp['msg'] = 'No data received.';
 			return json_encode($resp);
 		}
+		
+		// Validate required fields first
+		if(empty($_POST['username']) || empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['password'])){
+			$resp['status'] = 'failed';
+			$resp['msg'] = 'Please fill in all required fields (Username, First Name, Last Name, Password).';
+			return json_encode($resp);
+		}
+		
+		// Hash password
+		$_POST['password'] = md5($_POST['password']);
 		
 		$username = isset($_POST['username']) ? $this->conn->real_escape_string($_POST['username']) : '';
 		$id = isset($_POST['id']) ? intval($_POST['id']) : 0;
@@ -211,8 +215,12 @@ Class Users extends DBConnection {
 			}
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'Registration failed: ' . $this->conn->error;
-			$resp['sql'] = $sql;
+			$error_msg = $this->conn->error;
+			$resp['msg'] = 'Registration failed: ' . ($error_msg ? $error_msg : 'Database error occurred');
+			// Only include SQL in response for debugging (remove in production)
+			if(defined('DEBUG') && DEBUG) {
+				$resp['sql'] = $sql;
+			}
 		}
 		if($resp['status'] == 'success' && isset($resp['msg']))
 			$this->settings->set_flashdata('success', $resp['msg']);
@@ -232,8 +240,13 @@ switch ($action) {
 		echo $users->delete_users();
 	break;
 	case 'registration':
+		// Prevent any output before JSON
+		if(ob_get_level() > 0) {
+			ob_clean();
+		}
 		header('Content-Type: application/json');
 		echo $users->registration();
+		exit;
 	break;
 	default:
 		// echo $sysset->index();

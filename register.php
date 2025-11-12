@@ -137,19 +137,26 @@
             return false;
         }
         start_loader()
+        var formData = $(this).serialize();
         $.ajax({
             url:_base_url_+"classes/Users.php?f=registration",
             method:'POST',
             type:'POST',
-            data:new FormData($(this)[0]),
+            data:formData,
             dataType:'json',
             cache:false,
-            processData:false,
-            contentType: false,
-            error:err=>{
-                console.log('AJAX Error:', err)
-                console.log('Response Text:', err.responseText)
-                alert('An error occurred: ' + (err.responseText || err.statusText || 'Network error'))
+            error:function(xhr, status, error){
+                console.log('AJAX Error:', xhr, status, error)
+                console.log('Response Text:', xhr.responseText)
+                console.log('Status Code:', xhr.status)
+                var errorMsg = 'An error occurred';
+                try {
+                    var resp = JSON.parse(xhr.responseText);
+                    if(resp.msg) errorMsg = resp.msg;
+                } catch(e) {
+                    if(xhr.responseText) errorMsg = xhr.responseText.substring(0, 200);
+                }
+                alert('Error: ' + errorMsg);
                 end_loader()
             },
             success:function(resp){
