@@ -23,12 +23,6 @@
       color: #fff4f4 !important;
       background: #8080801c;
     }
-    img#cimg{
-      height: 5em;
-      width: 5em;
-      object-fit: cover;
-      border-radius: 100% 100%;
-    }
   </style>
 <body class="">
   <div class="d-flex flex-column align-items-center justify-content-center h-100 w-100">
@@ -78,20 +72,6 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div class="form-group">
-                  <label for="" class="control-label">Avatar</label>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input rounded-0" id="customFile" name="img" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg">
-                    <label class="custom-file-label rounded-0" for="customFile">Choose file</label>
-                  </div>
-          </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div class="form-group d-flex justify-content-center">
-            <img src="<?php echo validate_image('') ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
-          </div>
-              </div>
           </div>
           <div class="row">
             <div class="col-8">
@@ -125,18 +105,6 @@
   <script src="<?= base_url ?>dist/js/adminlte.min.js"></script>
 
 <script>
-function displayImg(input,_this) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#cimg').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }else{
-        $('#cimg').attr('src', "<?php echo validate_image('') ?>");
-    }
-}
   $(document).ready(function(){
     end_loader();
     $('.pass_view').click(function(){
