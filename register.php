@@ -41,7 +41,7 @@
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <div class="form-group">
                       <label for="firstname" class="control-label">First Name</label>
-                      <input type="text" class="form-control form-control-sm rounded-0" reqiured="" name="firstname" id="firstname">
+                      <input type="text" class="form-control form-control-sm rounded-0" required name="firstname" id="firstname">
                   </div>
                   <div class="form-group">
                       <label for="middlename" class="control-label">Middle Name</label>
@@ -49,18 +49,18 @@
                   </div>
                   <div class="form-group">
                       <label for="lastname" class="control-label">Last Name</label>
-                      <input type="text" class="form-control form-control-sm rounded-0" reqiured="" name="lastname" id="lastname">
+                      <input type="text" class="form-control form-control-sm rounded-0" required name="lastname" id="lastname">
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <div class="form-group">
                       <label for="username" class="control-label">Username</label>
-                      <input type="text" class="form-control form-control-sm rounded-0" reqiured="" name="username" id="username">
+                      <input type="text" class="form-control form-control-sm rounded-0" required name="username" id="username">
                   </div>
                   <div class="form-group">
                       <label for="password" class="control-label">Password</label>
                       <div class="input-group input-group-sm">
-                          <input type="password" class="form-control form-control-sm rounded-0" reqiured="" name="password" id="password">
+                          <input type="password" class="form-control form-control-sm rounded-0" required name="password" id="password">
                           <button tabindex="-1" class="btn btn-outline-secondary btn-sm rounded-0 pass_view" type="button"><i class="fa fa-eye-slash"></i></button>
                       </div>
                   </div>
@@ -147,21 +147,30 @@
             processData:false,
             contentType: false,
             error:err=>{
-                console.log(err)
-                alert('An error occurred')
+                console.log('AJAX Error:', err)
+                console.log('Response Text:', err.responseText)
+                alert('An error occurred: ' + (err.responseText || err.statusText || 'Network error'))
                 end_loader()
             },
             success:function(resp){
-                if(resp.status == 'success'){
-                  location.href = ('./login.php')
-                }else if(!!resp.msg){
-                    el.html(resp.msg)
-                    el.show('slow')
-                    _this.prepend(el)
-                    $('html, body').scrollTop(0)
-                }else{
-                    alert('An error occurred')
-                    console.log(resp)
+                try {
+                    if(typeof resp === 'string') {
+                        resp = JSON.parse(resp);
+                    }
+                    if(resp.status == 'success'){
+                        location.href = ('./login.php')
+                    }else if(!!resp.msg){
+                        el.html(resp.msg)
+                        el.show('slow')
+                        _this.prepend(el)
+                        $('html, body').scrollTop(0)
+                    }else{
+                        alert('An error occurred: ' + (resp.msg || 'Unknown error'))
+                        console.log(resp)
+                    }
+                } catch(e) {
+                    console.error('Response parsing error:', e, resp);
+                    alert('An error occurred while processing the response')
                 }
                 end_loader()
             }

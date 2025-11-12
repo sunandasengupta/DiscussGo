@@ -128,11 +128,23 @@ Class Users extends DBConnection {
 		}
 	}
 	function registration(){
+		$resp = array('status' => 'failed', 'msg' => 'An error occurred');
+		
 		if(!empty($_POST['password']))
 			$_POST['password'] = md5($_POST['password']);
 		else
-		unset($_POST['password']);
-		extract($_POST);
+			unset($_POST['password']);
+		
+		// Validate required fields
+		if(empty($_POST['username']) || empty($_POST['firstname']) || empty($_POST['lastname'])){
+			$resp['status'] = 'failed';
+			$resp['msg'] = 'Please fill in all required fields.';
+			return json_encode($resp);
+		}
+		
+		$username = isset($_POST['username']) ? $this->conn->real_escape_string($_POST['username']) : '';
+		$id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+		
 		$data = "";
 		$check = $this->conn->query("SELECT * FROM `users` where username = '{$username}' ".($id > 0 ? " and id!='{$id}'" : "")." ")->num_rows;
 		if($check > 0){
@@ -199,11 +211,12 @@ Class Users extends DBConnection {
 			}
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = $this->conn->error;
+			$resp['msg'] = 'Registration failed: ' . $this->conn->error;
 			$resp['sql'] = $sql;
 		}
 		if($resp['status'] == 'success' && isset($resp['msg']))
-		$this->settings->set_flashdata('success', $resp['msg']);
+			$this->settings->set_flashdata('success', $resp['msg']);
+		
 		return json_encode($resp);
 	}
 	
@@ -219,6 +232,7 @@ switch ($action) {
 		echo $users->delete_users();
 	break;
 	case 'registration':
+		header('Content-Type: application/json');
 		echo $users->registration();
 	break;
 	default:
