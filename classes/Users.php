@@ -157,13 +157,16 @@ Class Users extends DBConnection {
 			return json_encode($resp);
 		}
 		foreach($_POST as $k => $v){
-			$v = $this->conn->real_escape_string($v);
-			if(!in_array($k, ['id']) && !is_array($_POST[$k])){
-				if(!empty($data)) $data .= ", ";
-				$data .= " `{$k}` = '{$v}' ";
+			// Skip id field for new registrations, and skip empty values
+			if($k == 'id' || is_array($_POST[$k])) {
+				continue;
 			}
+			$v = $this->conn->real_escape_string($v);
+			if(!empty($data)) $data .= ", ";
+			$data .= " `{$k}` = '{$v}' ";
 		}
 		if(empty($id)){
+			// For new registration, don't include id field - let database auto-increment
 			$sql = "INSERT INTO `users` set {$data} ";
 		}else{
 			$sql = "UPDATE `users` set {$data} where id = '{$id}' ";

@@ -35,7 +35,6 @@
       </div>
       <div class="card-body rounded-0">
         <form id="register-form" action="" method="post">
-            <input type="hidden" name="id">
             <input type="hidden" name="type" value="2">
           <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
