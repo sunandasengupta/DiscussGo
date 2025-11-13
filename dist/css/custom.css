@@ -405,3 +405,23 @@ textarea.form-control:focus {
 .main-footer a:hover {
     color: #ff6a33 !important;
 }
+
+/* Public site footer used in inc/footer.php */
+footer.py-5.bg-gradient-navy {
+    background-color: #181819 !important;
+    background-image: none !important;
+    border-top: 1px solid var(--odfs-border);
+}
+
+footer.py-5.bg-gradient-navy p,
+footer.py-5.bg-gradient-navy .text-white {
+    color: var(--odfs-text-secondary) !important;
+}
+
+footer.py-5.bg-gradient-navy a {
+    color: var(--odfs-accent) !important;
+}
+
+footer.py-5.bg-gradient-navy a:hover {
+    color: #ff6a33 !important;
+}
