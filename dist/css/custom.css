@@ -538,3 +538,146 @@ button.navbar-toggler {
         justify-content: center;
     }
 }
+
+/* Add Post page - category dropdown and bottom buttons */
+.posts .card .form-control,
+.posts .card select.form-control {
+    background-color: var(--odfs-bg-elevated) !important;
+    color: var(--odfs-text-primary) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.posts .card .form-control:focus,
+.posts .card select.form-control:focus {
+    border-color: var(--odfs-accent) !important;
+    box-shadow: 0 0 0 0.1rem rgba(255, 69, 0, 0.4) !important;
+}
+
+.posts .card .form-control::placeholder {
+    color: var(--odfs-text-secondary) !important;
+}
+
+/* Select2 dropdown styling for category */
+.select2-container--default .select2-selection--single {
+    background-color: var(--odfs-bg-elevated) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--odfs-text-primary) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: var(--odfs-text-secondary) !important;
+}
+
+.select2-dropdown {
+    background-color: var(--odfs-bg-elevated) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.select2-results__option {
+    color: var(--odfs-text-primary) !important;
+}
+
+.select2-results__option--highlighted {
+    background-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
+
+/* Login and Registration pages - input fields and buttons */
+.login-page .card,
+.register-page .card {
+    background-color: var(--odfs-bg-elevated) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.login-page .card-body,
+.register-page .card-body {
+    color: var(--odfs-text-primary) !important;
+}
+
+.login-page .form-control,
+.register-page .form-control {
+    background-color: var(--odfs-bg-main) !important;
+    color: var(--odfs-text-primary) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.login-page .form-control:focus,
+.register-page .form-control:focus {
+    background-color: var(--odfs-bg-main) !important;
+    border-color: var(--odfs-accent) !important;
+    box-shadow: 0 0 0 0.1rem rgba(255, 69, 0, 0.4) !important;
+}
+
+.login-page .form-control::placeholder,
+.register-page .form-control::placeholder {
+    color: var(--odfs-text-secondary) !important;
+}
+
+.login-page .input-group-text,
+.register-page .input-group-text {
+    background-color: var(--odfs-bg-main) !important;
+    border-color: var(--odfs-border) !important;
+    color: var(--odfs-text-secondary) !important;
+}
+
+.login-page .btn-primary,
+.register-page .btn-primary {
+    background-color: var(--odfs-accent) !important;
+    border-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
+
+.login-page .btn-primary:hover,
+.register-page .btn-primary:hover {
+    background-color: #ff6a33 !important;
+    border-color: #ff6a33 !important;
+}
+
+.login-page .btn-outline-secondary,
+.register-page .btn-outline-secondary {
+    background-color: var(--odfs-bg-main) !important;
+    border-color: var(--odfs-border) !important;
+    color: var(--odfs-text-primary) !important;
+}
+
+.login-page .btn-outline-secondary:hover,
+.register-page .btn-outline-secondary:hover {
+    background-color: #333335 !important;
+    border-color: var(--odfs-accent) !important;
+}
+
+.login-page a,
+.register-page a {
+    color: var(--odfs-accent) !important;
+}
+
+.login-page a:hover,
+.register-page a:hover {
+    color: #ff6a33 !important;
+}
+
+/* Category type toggle buttons styling */
+.btn-group .btn-outline-secondary {
+    background-color: var(--odfs-bg-main) !important;
+    border-color: var(--odfs-border) !important;
+    color: var(--odfs-text-secondary) !important;
+}
+
+.btn-group .btn-outline-secondary:hover {
+    background-color: #333335 !important;
+    border-color: var(--odfs-accent) !important;
+    color: var(--odfs-text-primary) !important;
+}
+
+.btn-group .btn-outline-secondary.active {
+    background-color: var(--odfs-accent) !important;
+    border-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
+
+.btn-group .btn-outline-secondary:focus {
+    box-shadow: 0 0 0 0.1rem rgba(255, 69, 0, 0.4) !important;
+}

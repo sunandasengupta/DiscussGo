@@ -63,6 +63,7 @@ Class Master extends DBConnection {
 		if($save){
 			$bid = !empty($id) ? $id : $this->conn->insert_id;
 			$resp['status'] = 'success';
+			$resp['id'] = $bid;
 			if(empty($id))
 				$resp['msg'] = "New Category successfully saved.";
 			else
