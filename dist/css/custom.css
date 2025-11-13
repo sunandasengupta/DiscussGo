@@ -425,3 +425,98 @@ footer.py-5.bg-gradient-navy a {
 footer.py-5.bg-gradient-navy a:hover {
     color: #ff6a33 !important;
 }
+
+/* Topic Categories page - ensure readable text on dark cards */
+#categoryAccordion .card-header,
+#categoryAccordion .card-header .btn,
+#categoryAccordion .card-header .btn .collapse-icon {
+    color: var(--odfs-text-primary) !important;
+}
+
+#categoryAccordion .card-body,
+#categoryAccordion .card-body p {
+    color: var(--odfs-text-secondary) !important;
+}
+
+/* Comments box under post view - align with dark theme */
+.comment-list .list-group-item {
+    background-color: var(--odfs-bg-elevated) !important;
+    color: var(--odfs-text-primary) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.comment-list .list-group-item hr {
+    border-color: var(--odfs-border) !important;
+}
+
+.comment-list .text-muted {
+    color: var(--odfs-text-secondary) !important;
+}
+
+/* Comment form card (textarea + buttons) */
+.section .card .card-footer {
+    background-color: var(--odfs-bg-main) !important;
+    border-top-color: var(--odfs-border) !important;
+}
+
+/* Summernote editor in dark theme */
+.note-editor.note-frame,
+.note-editor.note-airframe {
+    background-color: var(--odfs-bg-elevated) !important;
+    color: var(--odfs-text-primary) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.note-editor .note-editing-area .note-editable {
+    background-color: var(--odfs-bg-elevated) !important;
+    color: var(--odfs-text-primary) !important;
+}
+
+.note-editor .note-toolbar,
+.note-editor .note-statusbar {
+    background-color: #202021 !important;
+    border-color: var(--odfs-border) !important;
+}
+
+.note-editor .note-toolbar .note-btn {
+    background-color: transparent;
+    color: var(--odfs-text-primary);
+    border-color: var(--odfs-border);
+}
+
+.note-editor .note-toolbar .note-btn:hover {
+    background-color: #333335;
+    border-color: var(--odfs-accent);
+}
+
+/* Navbar brand - use accent color and bold text */
+.navbar .navbar-brand {
+    font-weight: 700;
+    color: var(--odfs-accent) !important;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #ff6a33 !important;
+}
+
+/* Ensure navbar toggler is vertically centered on mobile
+ * Override earlier absolute positioning from styles.css
+ */
+button.navbar-toggler {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .container {
+        display: flex;
+        align-items: center;
+    }
+    .navbar-toggler {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

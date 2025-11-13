@@ -62,7 +62,6 @@
 <footer class="py-5 bg-gradient-navy">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; <?php echo $_settings->info('short_name') ?> 2025</p>
-              <p class="m-0 text-center text-white"></p>
           </div>
         </footer>
 
