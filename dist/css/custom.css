@@ -426,6 +426,24 @@ footer.py-5.bg-gradient-navy a:hover {
     color: #ff6a33 !important;
 }
 
+/* Post detail page content - ensure light text on dark cards */
+.section .card .card-body p,
+.section .card .card-body div {
+    color: var(--odfs-text-primary) !important;
+}
+
+/* Align navbar elements to the left on mobile (menu icon, logo, name) */
+@media (max-width: 991.98px) {
+    .navbar .container {
+        justify-content: flex-start !important;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    .navbar .navbar-brand {
+        margin-right: auto;
+    }
+}
+
 /* Topic Categories page - ensure readable text on dark cards */
 #categoryAccordion .card-header,
 #categoryAccordion .card-header .btn,
