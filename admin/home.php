@@ -1,5 +1,13 @@
-<h1>Welcome, <?php echo $_settings->userdata('firstname')." ".$_settings->userdata('lastname') ?>!</h1>
+<h1 class="mb-3" style="color: var(--odfs-text-primary);">Welcome, <?php echo $_settings->userdata('firstname')." ".$_settings->userdata('lastname') ?>!</h1>
 <hr>
+
+<!-- DiscussGO Hero Section (replaces admin carousel) -->
+<div class="container my-4">
+  <div class="text-center py-4 py-md-5 mb-3" style="background-color: var(--odfs-bg-elevated); border-radius: 0.25rem; border: 1px solid var(--odfs-border);">
+    <h1 class="mb-2" style="color: var(--odfs-accent); font-family: 'Arial Black', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">DiscussGO</h1>
+    <p class="mb-0" style="color: var(--odfs-text-secondary);">Admin Dashboard · Manage topics, categories, and community activity</p>
+  </div>
+</div>
 <div class="row">
   <div class="col-12 col-sm-3 col-md-3">
       <div class="info-box">
@@ -75,6 +83,8 @@
       <!-- /.info-box -->
     </div>
   </div>
+
+<!-- Original admin carousel commented out
 <div class="container">
   <?php 
     // Hardcoded carousel images
@@ -101,3 +111,4 @@
       </a>
   </div>
 </div>
+-->
