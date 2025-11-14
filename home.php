@@ -99,6 +99,58 @@
             </div>
             <?php endwhile; ?>
         </div>
+        
+        <!-- Feature Cards Section -->
+        <div class="row mt-5 pt-4">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 rounded-0 shadow" style="background-color: var(--odfs-bg-elevated); border-color: var(--odfs-border);">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-desktop fa-3x" style="color: var(--odfs-accent);"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3" style="color: var(--odfs-text-primary);">Easy-to-use interface</h4>
+                        <p class="card-text" style="color: var(--odfs-text-secondary);">Navigate effortlessly through our intuitive design. Create, read, and engage with discussions in just a few clicks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 rounded-0 shadow" style="background-color: var(--odfs-bg-elevated); border-color: var(--odfs-border);">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-folder-open fa-3x" style="color: var(--odfs-accent);"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3" style="color: var(--odfs-text-primary);">Topic-wise discussion categories</h4>
+                        <p class="card-text" style="color: var(--odfs-text-secondary);">Find your interests instantly with organized categories. From technology to lifestyle, discover conversations that matter to you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 rounded-0 shadow" style="background-color: var(--odfs-bg-elevated); border-color: var(--odfs-border);">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-comments fa-3x" style="color: var(--odfs-accent);"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3" style="color: var(--odfs-text-primary);">Real-time responses and engagement</h4>
+                        <p class="card-text" style="color: var(--odfs-text-secondary);">Connect instantly with community members. Share ideas, get feedback, and build meaningful relationships through active discussions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Community Card -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 mb-4">
+                <div class="card rounded-0 shadow" style="background-color: var(--odfs-bg-elevated); border-color: var(--odfs-border);">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-users fa-3x" style="color: var(--odfs-accent);"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3" style="color: var(--odfs-text-primary);">Respectful and inclusive community</h4>
+                        <p class="card-text" style="color: var(--odfs-text-secondary);">Join a safe space where diverse voices are valued and respected. We foster meaningful dialogues, promote understanding, and ensure everyone feels welcome to share their perspectives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <script>
