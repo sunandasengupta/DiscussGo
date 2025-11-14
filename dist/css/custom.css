@@ -715,6 +715,7 @@ body.sidebar-mini .info-box .info-box-number {
 
 /* Admin info-box icons: use palette accent instead of blue/gray */
 body.sidebar-mini .info-box .info-box-icon,
+body.sidebar-mini .info-box .info-box-icon.bg-gradient-navy,
 body.sidebar-mini .info-box .info-box-icon.bg-gradient-primary,
 body.sidebar-mini .info-box .info-box-icon.bg-gradient-secondary,
 body.sidebar-mini .info-box .info-box-icon.bg-gradient-light {
