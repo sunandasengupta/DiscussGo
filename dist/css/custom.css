@@ -681,3 +681,52 @@ button.navbar-toggler {
 .btn-group .btn-outline-secondary:focus {
     box-shadow: 0 0 0 0.1rem rgba(255, 69, 0, 0.4) !important;
 }
+
+/* =========================================================
+ * Admin dashboard hard overrides (AdminLTE only)
+ * Scope via body.sidebar-mini so frontend pages stay as-is
+ * Uses the global dark palette variables
+ * =======================================================*/
+body.sidebar-mini,
+body.sidebar-mini .wrapper {
+	background-color: var(--odfs-bg-main) !important;
+}
+
+body.sidebar-mini .content-wrapper,
+body.sidebar-mini .content-wrapper .content,
+body.sidebar-mini .content-wrapper .content-header {
+	background-color: var(--odfs-bg-main) !important;
+	color: var(--odfs-text-primary) !important;
+}
+
+body.sidebar-mini .content-wrapper .card,
+body.sidebar-mini .content-wrapper .info-box,
+body.sidebar-mini .content-wrapper .small-box {
+	background-color: var(--odfs-bg-elevated) !important;
+	border-color: var(--odfs-border) !important;
+	color: var(--odfs-text-primary) !important;
+}
+
+body.sidebar-mini .info-box .info-box-content,
+body.sidebar-mini .info-box .info-box-text,
+body.sidebar-mini .info-box .info-box-number {
+	color: var(--odfs-text-primary) !important;
+}
+
+/* Admin info-box icons: use palette accent instead of blue/gray */
+body.sidebar-mini .info-box .info-box-icon,
+body.sidebar-mini .info-box .info-box-icon.bg-gradient-primary,
+body.sidebar-mini .info-box .info-box-icon.bg-gradient-secondary,
+body.sidebar-mini .info-box .info-box-icon.bg-gradient-light {
+	background-color: var(--odfs-bg-main) !important;
+	color: var(--odfs-accent) !important;
+}
+
+/* Admin small-box variants: align with dark theme */
+body.sidebar-mini .small-box.bg-gradient-primary,
+body.sidebar-mini .small-box.bg-gradient-secondary,
+body.sidebar-mini .small-box.bg-gradient-light {
+	background-color: var(--odfs-bg-elevated) !important;
+	border-color: var(--odfs-border) !important;
+	color: var(--odfs-text-primary) !important;
+}
