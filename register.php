@@ -30,8 +30,8 @@
   <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
     <!-- /.login-logo -->
     <div class="card card-navy my-2 rounded-0">
-      <div class="card-header rounded-0">
-          <h4 class="card-title">Registration</h4>
+      <div class="card-header rounded-0" style="background-color: var(--odfs-bg-elevated); border-color: var(--odfs-border);">
+          <h4 class="card-title" style="color: var(--odfs-accent); font-weight: 700;">Registration</h4>
       </div>
       <div class="card-body rounded-0">
         <form id="register-form" action="" method="post">

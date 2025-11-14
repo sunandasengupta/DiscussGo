@@ -33,6 +33,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <!-- DiscussGO Hero Section -->
+                <div class="bg-dark text-center py-5 mb-4" style="background-color: var(--odfs-bg-main) !important;">
+                    <h1 class="display-1 fw-bold mb-0" style="color: var(--odfs-accent); font-family: 'Arial Black', sans-serif; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">DiscussGO</h1>
+                    <p class="lead mt-3" style="color: var(--odfs-text-secondary);">Share your thoughts, engage with the community</p>
+                </div>
+                <!-- Original carousel commented out
                 <div id="carouselExampleControls" class="carousel slide bg-dark" data-ride="carousel">
                     <div class="carousel-inner">
                         <?php 
@@ -59,6 +65,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                     </div>
+                -->
             </div>
         </div>
         <div class="row justify-content-center my-4">
