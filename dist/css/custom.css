@@ -730,3 +730,31 @@ body.sidebar-mini .small-box.bg-gradient-light {
 	border-color: var(--odfs-border) !important;
 	color: var(--odfs-text-primary) !important;
 }
+
+/* Admin top-right user nav (button + dropdown) */
+body.sidebar-mini .main-header .btn.badge-light.dropdown-toggle {
+    background-color: var(--odfs-bg-elevated) !important;
+    border-color: var(--odfs-border) !important;
+    color: var(--odfs-text-primary) !important;
+}
+
+body.sidebar-mini .main-header .btn.badge-light.dropdown-toggle:hover,
+body.sidebar-mini .main-header .btn.badge-light.dropdown-toggle:focus {
+    background-color: var(--odfs-accent) !important;
+    border-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
+
+body.sidebar-mini .main-header .dropdown-menu {
+    background-color: var(--odfs-bg-elevated) !important;
+    border-color: var(--odfs-border) !important;
+}
+
+body.sidebar-mini .main-header .dropdown-menu .dropdown-item {
+    color: var(--odfs-text-primary) !important;
+}
+
+body.sidebar-mini .main-header .dropdown-menu .dropdown-item:hover {
+    background-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
