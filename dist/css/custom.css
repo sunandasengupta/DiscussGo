@@ -759,3 +759,15 @@ body.sidebar-mini .main-header .dropdown-menu .dropdown-item:hover {
     background-color: var(--odfs-accent) !important;
     color: #ffffff !important;
 }
+
+/* Final override: admin sidebar active/hover link uses orange accent */
+body.sidebar-mini .main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+body.sidebar-mini .main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover {
+    background-color: var(--odfs-accent) !important;
+    color: #ffffff !important;
+}
+
+body.sidebar-mini .main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active .nav-icon,
+body.sidebar-mini .main-sidebar.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover .nav-icon {
+    color: #ffffff !important;
+}
