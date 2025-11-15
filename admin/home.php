@@ -11,7 +11,7 @@
 <div class="row">
   <div class="col-12 col-sm-3 col-md-3">
       <div class="info-box">
-        <span class="info-box-icon bg-gradient-navy elevation-1"><i class="fas fa-th-list"></i></span>
+        <span class="info-box-icon elevation-1"><i class="fas fa-th-list"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Category List</span>
           <span class="info-box-number">
@@ -29,7 +29,7 @@
     <!-- /.col -->
     <div class="col-12 col-sm-3 col-md-3">
       <div class="info-box">
-        <span class="info-box-icon bg-gradient-light border elevation-1"><i class="fas fa-users-cog"></i></span>
+        <span class="info-box-icon elevation-1"><i class="fas fa-users-cog"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Registered Users</span>
           <span class="info-box-number">
@@ -47,7 +47,7 @@
     <!-- /.col -->
     <div class="col-12 col-sm-3 col-md-3">
       <div class="info-box">
-        <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-blog"></i></span>
+        <span class="info-box-icon elevation-1"><i class="fas fa-blog"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">Published Post</span>
@@ -66,7 +66,7 @@
     <!-- /.col -->
     <div class="col-12 col-sm-3 col-md-3">
       <div class="info-box">
-        <span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-blog"></i></span>
+        <span class="info-box-icon elevation-1"><i class="fas fa-blog"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">Unpublished Post</span>

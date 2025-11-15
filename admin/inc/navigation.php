@@ -1,6 +1,6 @@
 </style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark elevation-4 sidebar-no-expand">
+      <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
         <a href="<?php echo base_url ?>admin" class="brand-link text-sm">
         <img src="<?php echo base_url . 'uploads/logo.png'?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 1.5rem;height: 1.5rem;max-height: unset">
